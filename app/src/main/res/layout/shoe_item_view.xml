@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_marginTop="16dp"
+    android:layout_marginBottom="16dp">
+
+    <TextView
+        android:id="@+id/shoe_name"
+        android:textSize="16sp"
+        android:textAlignment="center"
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        tools:text="Fl123"/>
+    <TextView
+        android:id="@+id/shoe_size"
+        android:textSize="16sp"
+        android:textAlignment="center"
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        tools:text="42"/>
+    <TextView
+        android:id="@+id/shoe_company"
+        android:textSize="16sp"
+        android:textAlignment="center"
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        tools:text="Nike"/>
+    <TextView
+        android:id="@+id/shoe_description"
+        android:textSize="16sp"
+        android:textAlignment="center"
+        android:layout_weight="3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        tools:text="Comfortable flat shoes"/>
+
+</LinearLayout>
