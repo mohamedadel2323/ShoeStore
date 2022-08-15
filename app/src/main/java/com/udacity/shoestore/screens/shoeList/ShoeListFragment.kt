@@ -36,11 +36,11 @@ class ShoeListFragment : Fragment() {
             false
         )
 
-        binding.fab.setOnClickListener {
-            findNavController().navigate(ShoeListFragmentDirections.actionShoeListFragmentToDetailFragment())
-        }
+        binding.clicker = this
 
-        shoeListViewModel = ViewModelProvider(requireActivity()).get(MainActivityViewModel::class.java)
+
+        shoeListViewModel =
+            ViewModelProvider(requireActivity()).get(MainActivityViewModel::class.java)
         shoeList = shoeListViewModel.getShoeList()!!
         shoeListViewModel.addedShoe.observe(viewLifecycleOwner, Observer {
             if (it) {
@@ -71,6 +71,10 @@ class ShoeListFragment : Fragment() {
             }
             root.addView(view)
         }
+    }
+
+    fun addShoe() {
+        findNavController().navigate(ShoeListFragmentDirections.actionShoeListFragmentToDetailFragment())
     }
 
 }

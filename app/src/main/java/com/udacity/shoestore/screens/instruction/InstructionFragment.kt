@@ -25,13 +25,15 @@ class InstructionFragment : Fragment() {
             false
         )
 
-        binding.instructionButton.setOnClickListener {
-            findNavController().navigate(InstructionFragmentDirections.actionInstructionFragmentToShoeListFragment())
-        }
+        binding.clicker = this
 
         setHasOptionsMenu(true)
 
         return binding.root
+    }
+
+    fun shoeList() {
+        findNavController().navigate(InstructionFragmentDirections.actionInstructionFragmentToShoeListFragment())
     }
 
 }

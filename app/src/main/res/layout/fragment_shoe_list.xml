@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
 
+    <data>
+
+        <variable
+            name="clicker"
+            type="com.udacity.shoestore.screens.shoeList.ShoeListFragment" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
@@ -36,11 +43,11 @@
             android:layout_gravity="end|bottom"
             android:layout_margin="16dp"
             android:contentDescription="shoe addition button"
+            android:onClick="@{() -> clicker.addShoe()}"
             android:src="@drawable/ic_add"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
-        <!-- TODO: Update blank fragment layout -->
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

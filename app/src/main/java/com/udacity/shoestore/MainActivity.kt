@@ -35,11 +35,21 @@ class MainActivity : AppCompatActivity() {
         if (navController.currentDestination?.id == R.id.loginFragment
             || navController.currentDestination?.id == R.id.welcomeFragment
             || navController.currentDestination?.id == R.id.instructionFragment
-            || navController.currentDestination?.id == R.id.shoeListFragment) {
-            finish()
-            return true
+            || navController.currentDestination?.id == R.id.shoeListFragment
+        ) {
+            return false
         }
         return navController.navigateUp()
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        if (navController.currentDestination?.id == R.id.loginFragment
+            || navController.currentDestination?.id == R.id.welcomeFragment
+            || navController.currentDestination?.id == R.id.instructionFragment
+        ) {
+            finish()
+        }
     }
 
 

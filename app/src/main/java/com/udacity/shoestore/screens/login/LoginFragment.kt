@@ -25,13 +25,12 @@ class LoginFragment : Fragment() {
             container,
             false
         )
+        binding.clicker = this
 
-        binding.loginButton.setOnClickListener {
-            findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToWelcomeFragment())
-        }
-        binding.createButton.setOnClickListener {
-            findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToWelcomeFragment())
-        }
         return binding.root
+    }
+
+    fun login() {
+        findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToWelcomeFragment())
     }
 }

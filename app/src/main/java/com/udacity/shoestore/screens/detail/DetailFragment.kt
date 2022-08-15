@@ -17,8 +17,8 @@ import com.udacity.shoestore.shoeListViewModel
 
 
 class DetailFragment : Fragment() {
-private lateinit var newShoe :Shoe
-private lateinit var binding: FragmentDetailBinding
+    private lateinit var newShoe: Shoe
+    private lateinit var binding: FragmentDetailBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,37 +32,48 @@ private lateinit var binding: FragmentDetailBinding
             false
         )
 
-        shoeListViewModel = ViewModelProvider(requireActivity()).get(MainActivityViewModel::class.java)
+        binding.shoeSaver = this
 
-        binding.cancelButton.setOnClickListener {
-            findNavController().navigate(DetailFragmentDirections.actionDetailFragmentToShoeListFragment())
-        }
-        binding.SaveButton.setOnClickListener {
-            if (validation()){
-                newShoe= Shoe(binding.shoeNameEt.text.toString() ,binding.sizeEt.text.toString().toDouble(), binding.companyEt.text.toString() , binding.descriptionEt.text.toString())
-                shoeListViewModel.addNewShoe(newShoe)
-                findNavController().navigate(DetailFragmentDirections.actionDetailFragmentToShoeListFragment())
-            }else{
-                Toast.makeText(requireContext() , "Please fill all fields." , Toast.LENGTH_SHORT).show()
-            }
-        }
+        shoeListViewModel =
+            ViewModelProvider(requireActivity()).get(MainActivityViewModel::class.java)
+
 
         return binding.root
     }
-    fun validation() : Boolean{
-        if (binding.shoeNameEt.text.isEmpty()){
+
+    fun validation(): Boolean {
+        if (binding.shoeNameEt.text.isEmpty()) {
             return false
         }
-        if (binding.sizeEt.text.isEmpty()){
+        if (binding.sizeEt.text.isEmpty()) {
             return false
         }
-        if (binding.companyEt.text.isEmpty()){
+        if (binding.companyEt.text.isEmpty()) {
             return false
         }
-        if (binding.descriptionEt.text.isEmpty()){
+        if (binding.descriptionEt.text.isEmpty()) {
             return false
         }
         return true
+    }
+
+    fun saveData() {
+        if (validation()) {
+            newShoe = Shoe(
+                binding.shoeNameEt.text.toString(),
+                binding.sizeEt.text.toString().toDouble(),
+                binding.companyEt.text.toString(),
+                binding.descriptionEt.text.toString()
+            )
+            shoeListViewModel.addNewShoe(newShoe)
+            findNavController().navigate(DetailFragmentDirections.actionDetailFragmentToShoeListFragment())
+        } else {
+            Toast.makeText(requireContext(), "Please fill all fields.", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    fun cancel() {
+        findNavController().navigate(DetailFragmentDirections.actionDetailFragmentToShoeListFragment())
     }
 
 }

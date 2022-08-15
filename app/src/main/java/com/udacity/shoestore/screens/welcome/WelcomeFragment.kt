@@ -27,10 +27,13 @@ class WelcomeFragment : Fragment() {
             false
         )
 
-        binding.instructionButton.setOnClickListener {
-            findNavController().navigate(WelcomeFragmentDirections.actionWelcomeFragmentToInstructionFragment())
-        }
+        binding.clicker = this
+
         setHasOptionsMenu(true)
         return binding.root
+    }
+
+    fun instructions() {
+        findNavController().navigate(WelcomeFragmentDirections.actionWelcomeFragmentToInstructionFragment())
     }
 }
