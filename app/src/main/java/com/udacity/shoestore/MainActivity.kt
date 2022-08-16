@@ -1,9 +1,11 @@
 package com.udacity.shoestore
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.inputmethod.InputMethodManager
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
@@ -23,6 +25,8 @@ class MainActivity : AppCompatActivity() {
         val binding =
             DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main)
         Timber.plant(Timber.DebugTree())
+
+
 
         shoeListViewModel = ViewModelProvider(this).get(MainActivityViewModel::class.java)
 

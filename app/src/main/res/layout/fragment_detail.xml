@@ -11,6 +11,7 @@
             type="com.udacity.shoestore.screens.detail.DetailFragment" />
     </data>
 
+    <!-- I used constraint layout here to be able to center the shoe form vertically on it-->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -24,13 +25,11 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:context=".screens.detail.DetailFragment">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
 
+                <!-- I used Linear layout here because the children of it are aligned vertically and its simple hierarchy-->
                 <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:orientation="vertical"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -106,6 +105,7 @@
                         android:layout_marginEnd="16dp"
                         android:layout_marginBottom="32dp" />
 
+                    <!-- I used Linear layout inside the parent linear layout to use the horizontal orientation to make the two buttons beside each other-->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -138,7 +138,7 @@
 
 
                 </LinearLayout>
-            </androidx.constraintlayout.widget.ConstraintLayout>
+
 
         </ScrollView>
 

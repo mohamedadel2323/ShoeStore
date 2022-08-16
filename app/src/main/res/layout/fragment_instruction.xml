@@ -10,6 +10,7 @@
             type="com.udacity.shoestore.screens.instruction.InstructionFragment" />
     </data>
 
+    <!-- I used constraint layout here to use the vertical chain property using the value spread-->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"

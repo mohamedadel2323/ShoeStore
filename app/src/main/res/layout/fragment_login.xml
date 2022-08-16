@@ -10,9 +10,11 @@
             type="com.udacity.shoestore.screens.login.LoginFragment" />
     </data>
 
+    <!-- I used constraint layout here to be able to center the Login form vertically on it-->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        tools:context=".screens.login.LoginFragment">
 
         <ScrollView
             android:layout_width="match_parent"
@@ -22,80 +24,75 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+
+            <!-- I used Linear layout here because the children of it are aligned vertically and its simple hierarchy-->
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                tools:context=".screens.login.LoginFragment">
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:fontFamily="monospace"
+                    android:text="@string/user_name"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
 
-                <LinearLayout
+                <EditText
+                    android:id="@+id/username_et"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="32dp" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:fontFamily="monospace"
-                        android:text="@string/user_name"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:fontFamily="monospace"
+                    android:text="@string/password"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
 
-                    <EditText
-                        android:id="@+id/username_et"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginEnd="16dp"
-                        android:layout_marginBottom="32dp" />
+                <EditText
+                    android:id="@+id/password_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="32dp"
+                    android:inputType="textPassword" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:fontFamily="monospace"
-                        android:text="@string/password"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
+                <Button
+                    android:id="@+id/login_button"
+                    style="@style/Widget.AppCompat.Button.Colored"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="64dp"
+                    android:layout_marginEnd="64dp"
+                    android:layout_marginBottom="16dp"
+                    android:onClick="@{() -> clicker.login()}"
+                    android:text="Login"
+                    android:textAllCaps="true" />
 
-                    <EditText
-                        android:id="@+id/password_et"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginEnd="16dp"
-                        android:layout_marginBottom="32dp"
-                        android:inputType="textPassword" />
+                <Button
+                    android:id="@+id/create_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="64dp"
+                    android:layout_marginEnd="64dp"
+                    android:onClick="@{() -> clicker.login()}"
+                    android:text="Create"
+                    android:textAllCaps="true" />
+            </LinearLayout>
 
-                    <Button
-                        android:id="@+id/login_button"
-                        style="@style/Widget.AppCompat.Button.Colored"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="64dp"
-                        android:layout_marginEnd="64dp"
-                        android:layout_marginBottom="16dp"
-                        android:onClick="@{() -> clicker.login()}"
-                        android:text="Login"
-                        android:textAllCaps="true" />
-
-                    <Button
-                        android:id="@+id/create_button"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="64dp"
-                        android:layout_marginEnd="64dp"
-                        android:onClick="@{() -> clicker.login()}"
-                        android:text="Create"
-                        android:textAllCaps="true" />
-                </LinearLayout>
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
         </ScrollView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

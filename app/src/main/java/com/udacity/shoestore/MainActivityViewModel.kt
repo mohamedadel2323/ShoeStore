@@ -41,14 +41,6 @@ class MainActivityViewModel : ViewModel() {
             Shoe("F123", 39.0, "Nike", "Comfortable flat shoes"),
             Shoe("F123", 40.0, "Nike", "Comfortable flat shoes"),
             Shoe("F123", 48.0, "Nike", "Comfortable flat shoes"),
-            Shoe("F123", 40.0, "Nike", "Comfortable flat shoes"),
-            Shoe("W957", 44.0, "Adidas", "Comfortable Wide shoes"),
-            Shoe("F123", 42.0, "Nike", "Comfortable flexible shoes"),
-            Shoe("S515", 40.0, "Nike", "Comfortable sports shoes"),
-            Shoe("F123", 40.0, "Macron", "Comfortable flat shoes"),
-            Shoe("F123", 39.0, "Nike", "Comfortable flat shoes"),
-            Shoe("F123", 40.0, "Nike", "Comfortable flat shoes"),
-            Shoe("F123", 48.0, "Nike", "Comfortable flat shoes"),
         )
         _shoeList.value = shoeListInit
     }

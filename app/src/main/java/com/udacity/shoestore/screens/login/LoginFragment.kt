@@ -1,10 +1,13 @@
 package com.udacity.shoestore.screens.login
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
+import androidx.core.content.ContextCompat.getSystemService
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.fragment.findNavController
 import com.udacity.shoestore.R
