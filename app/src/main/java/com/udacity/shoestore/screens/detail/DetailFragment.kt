@@ -7,19 +7,19 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.udacity.shoestore.MainActivityViewModel
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.FragmentDetailBinding
 import com.udacity.shoestore.models.Shoe
-import com.udacity.shoestore.shoeListViewModel
 
 
 class DetailFragment : Fragment() {
     private lateinit var newShoe: Shoe
     private lateinit var binding: FragmentDetailBinding
-
+    val shoeListViewModel by activityViewModels<MainActivityViewModel>()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -33,9 +33,12 @@ class DetailFragment : Fragment() {
         )
 
         binding.shoeSaver = this
+        binding.shoeViewModel = shoeListViewModel
+        binding.lifecycleOwner = this
 
-        shoeListViewModel =
-            ViewModelProvider(requireActivity()).get(MainActivityViewModel::class.java)
+
+//        shoeListViewModel =
+//            ViewModelProvider(requireActivity()).get(MainActivityViewModel::class.java)
 
 
         return binding.root
@@ -59,12 +62,13 @@ class DetailFragment : Fragment() {
 
     fun saveData() {
         if (validation()) {
-            newShoe = Shoe(
-                binding.shoeNameEt.text.toString(),
-                binding.sizeEt.text.toString().toDouble(),
-                binding.companyEt.text.toString(),
-                binding.descriptionEt.text.toString()
-            )
+
+            var shoeName = shoeListViewModel.shoeName.value.toString()
+            var shoeCompany = shoeListViewModel.shoeCompany.value.toString()
+            var shoeSize = shoeListViewModel.shoeSize.value.toString().toDouble()
+            var shoeDescription = shoeListViewModel.shoeDescription.value.toString()
+
+            newShoe = Shoe(shoeName, shoeSize, shoeCompany, shoeDescription)
             shoeListViewModel.addNewShoe(newShoe)
             findNavController().navigate(DetailFragmentDirections.actionDetailFragmentToShoeListFragment())
         } else {

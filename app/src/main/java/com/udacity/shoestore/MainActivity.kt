@@ -1,11 +1,9 @@
 package com.udacity.shoestore
 
-import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.view.inputmethod.InputMethodManager
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
@@ -58,7 +56,11 @@ class MainActivity : AppCompatActivity() {
 
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        if (navController.currentDestination?.id == R.id.loginFragment) {
+        if (navController.currentDestination?.id == R.id.loginFragment
+            || navController.currentDestination?.id == R.id.welcomeFragment
+            || navController.currentDestination?.id == R.id.instructionFragment
+            || navController.currentDestination?.id == R.id.detailFragment
+        ) {
             return false
         }
         menuInflater.inflate(R.menu.menu, menu)

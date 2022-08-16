@@ -11,6 +11,12 @@ class MainActivityViewModel : ViewModel() {
     val shoeList: LiveData<ArrayList<Shoe>>
         get() = _shoeList
 
+    var shoeName = MutableLiveData<String>()
+    var shoeCompany = MutableLiveData<String>()
+    var shoeSize = MutableLiveData<String>()
+    var shoeDescription = MutableLiveData<String>()
+
+
     private val _addedShoe = MutableLiveData<Boolean>()
     val addedShoe: LiveData<Boolean>
         get() = _addedShoe
@@ -53,7 +59,8 @@ class MainActivityViewModel : ViewModel() {
         _shoeList.value?.add(newShoe)
         _addedShoe.value = true
     }
-    fun finishAdding(){
+
+    fun finishAdding() {
         _addedShoe.value = false
     }
 
